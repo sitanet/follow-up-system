@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+            
+
+
+
+
+           <!-- start content -->
+                  
+                     <!-- graph -->
+                    
+                       
+
+                     
+
+                        <div class="row column1">
+                            <div class="col-md-6 col-lg-3">
+                               <div class="full counter_section margin_bottom_30">
+                                  <div class="couter_icon">
+                                     <div> 
+                                        <i class="fa fa-money yellow_color"></i>
+                                     </div>
+                                  </div>
+                                  <div class="counter_no">
+                                     <div>
+                                        <p class="head_couter" >Income</p>
+                                        <p class="total_no">5,000.00</p>
+                                        
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                               <div class="full counter_section margin_bottom_30">
+                                  <div class="couter_icon">
+                                     <div> 
+                                        
+                                        <i class="fa fa-clock-o blue1_color"></i>
+                                     </div>
+                                  </div>
+                                  <div class="counter_no">
+                                     <div>
+                                        <p class="head_couter">Expenses</p>
+                                        <p class="total_no">4,500.00</p>
+                                        
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                               <div class="full counter_section margin_bottom_30">
+                                  <div class="couter_icon">
+                                     <div> 
+                                        <i class="fa fa-cloud-download green_color"></i>
+                                     </div>
+                                  </div>
+                                  <div class="counter_no">
+                                     <div>
+                                        <p class="head_couter">Net Income</p>
+                                        <p class="total_no">500.00</p>
+                                        
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                               <div class="full counter_section margin_bottom_30">
+                                  <div class="couter_icon">
+                                     <div> 
+                                        <i class="fa fa-comments-o red_color"></i>
+                                     </div>
+                                  </div>
+                                  <div class="counter_no">
+                                     <div>
+                                        <p class="head_couter">Unbalanced</p>
+                                        <p class="total_no">0.00</p>
+                                        
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                     
+                          
+                         <!-- start graph -->
+                         <div class="row column2 graph margin_bottom_30">
+                            <div class="col-md-l2 col-lg-12">
+                               <div class="white_shd full">
+                                  <div class="full graph_head">
+                                     <div class="heading1 margin_0">
+                                        <h2>Extra Area Chart</h2>
+                                     </div>
+                                  </div>
+                                  <div class="full graph_revenue">
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                           <div class="content">
+                                              <div class="area_chart">
+                                                 <canvas height="120" id="canvas"></canvas>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+
+                         <!-- end graph -->
+                     
+                    
+                     <!-- end graph -->
+                   
+                       
+
+<!-- end content -->
+
+
+{% endblock %}
