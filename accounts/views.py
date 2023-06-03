@@ -14,6 +14,7 @@ from django.contrib.auth.tokens import default_token_generator
 
 
 # Create your views here.
+@login_required(login_url='login')
 def registerUser(request):
     if request.method == 'POST':
         print(request.POST)
@@ -46,7 +47,7 @@ def registerUser(request):
     return render(request, 'accounts/registerUser.html', context)
 
 
-
+@login_required(login_url='login')
 def registerStaff(request):
   
     if request.method == 'POST':
@@ -117,7 +118,7 @@ def activate(request, uidb64, token):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect('mem_reg')
+        return redirect('dashboard')
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -143,9 +144,9 @@ def dashboard(request):
 
 def logout(request):
     auth.logout(request)
-    messages.info(request, 'You are logged out.')
+    
     return redirect('login')
-    return render(request, 'accounts/logout.html')
+    
 
 def forgot_password(request):
     if request.method == 'POST':
@@ -162,7 +163,7 @@ def forgot_password(request):
         else:
             messages.error(request, 'Account does not exist.')
             return redirect('forgot_password')
-    return render(request, 'accounts/emails/forgot_password.html')
+    return render(request, 'accounts/forgot_password.html')
 
 def reset_password_validate(request, uidb64, token):
     # validate the user by decode the token and user pk
@@ -234,3 +235,5 @@ def staff_profile(request):
 
 
 
+# def dashboard(request):
+#     return render(request, 'follow_up/dashboard.html')

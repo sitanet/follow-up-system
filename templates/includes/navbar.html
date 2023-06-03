@@ -42,7 +42,7 @@
           </li>
           <li><a href="{% url 'logout' %}"><i class="fa fa-clock-o orange_color"></i> <span>Logout</span></a></li>
           <li><a href="{% url 'registerStaff' %}"><i class="fa fa-clock-o orange_color"></i> <span>Register Staff</span></a></li>
-          <li><a href="login.html"><i class="fa fa-clock-o orange_color"></i> <span>Login</span></a></li>
+          <!-- <li><a href="login.html"><i class="fa fa-clock-o orange_color"></i> <span>Login</span></a></li> -->
         
        </ul>
     </div>
@@ -63,12 +63,12 @@
                  
                    <ul class="user_profile_dd">
                       <li>
-                         <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{%  static 'images/layout_img/user_img.jpg' %}" alt="#" /><span class="name_user">Bayo Izekor</span></a>
+                         <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{ dashboard_user.user_profile.profile_picture.url}}" alt="#" /><span class="name_user">{{dashboard_user.user}}</span></a>
                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="help.html">Help</a>
-                            <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                            <a class="dropdown-item" href="{% url 'staff_profile' %}">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'forgot_password' %}">Change Password</a>
+                            <!-- <a class="dropdown-item" href="help.html">Help</a> -->
+                            <a class="dropdown-item" href="{% url 'logout' %}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                          </div>
                       </li>
                    </ul>

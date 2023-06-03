@@ -12,12 +12,13 @@ from django.shortcuts import render, get_object_or_404
 from .utils import custom_id
 from accounts.models import User
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def mem_reg(request):
     
     if request.method == 'POST':
@@ -88,7 +89,7 @@ def mem_reg(request):
 
 
 
-
+@login_required(login_url='login')
 def display_all(request):
     if 'q' in request.GET:
         q = request.GET['q']
@@ -104,7 +105,7 @@ def display_all(request):
 
 
 
-
+@login_required(login_url='login')
 def member_detail(request, id):
     member = get_object_or_404(Member, id=id)
 
@@ -145,15 +146,19 @@ def member_detail(request, id):
 
 
 
-
+@login_required(login_url='login')
 def delete_object(request, id):
     member = get_object_or_404(Member, id=id)
     member.delete()
     return redirect('display_all')
-    return render(request, 'follow_up/display_all.html', {'member': member,})
+  
 
-
-
+# def delete_comment(request, id):
+#     member = get_object_or_404(Comment, id=id)
+#     member.delete()
+#     return redirect('display_all')
+    
+@login_required(login_url='login')
 def display_comment(request):
      if 'q' in request.GET:
         q = request.GET['q']
@@ -165,7 +170,7 @@ def display_comment(request):
      return render(request, 'follow_up/display_comment.html', {'comment': comment})
 
 
-
+@login_required(login_url='login')
 def comment(request, id):
     member = get_object_or_404(Member, id=id)
     if request.method == 'POST':
@@ -174,7 +179,7 @@ def comment(request, id):
             comment = form.save(commit=False)
             comment.member = member
             comment.save()
-            return redirect('display_all')
+            return redirect('display_comment')
    
     else:
         form = CommentForm()
