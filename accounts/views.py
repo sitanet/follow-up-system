@@ -70,6 +70,7 @@ def registerStaff(request):
             user_profile = UserProfile.objects.get(user=user)
             staff.user_profile = user_profile
             staff.save()
+            messages.success(request, "Your Account has been registered successfully")
            
            
             

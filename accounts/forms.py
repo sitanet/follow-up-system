@@ -34,7 +34,7 @@ class StaffForm(forms.ModelForm):
    
     class Meta:
         model = staff
-        fields = ['staff_full_name', 'staff_id_card']
+        fields = ['staff_full_name']
         widgets = {
             'staff_full_name': forms.TextInput(attrs={'placeholder': 'Staff ID'})
          

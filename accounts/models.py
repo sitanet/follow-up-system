@@ -134,7 +134,7 @@ class staff(models.Model):
     # branch = models.ForeignKey(Branch, related_name='branch', on_delete=models.CASCADE, null=True, blank=True)
     user_profile = models.OneToOneField(UserProfile, related_name='userprofile', on_delete=models.CASCADE)
     staff_full_name = models.CharField(max_length=30)
-    staff_id_card = models.ImageField(upload_to='staff/id_card', null=True, blank=True)
+    
     is_approved = models. BooleanField(default=False)
     
     

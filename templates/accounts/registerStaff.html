@@ -24,7 +24,7 @@
                       </div>
                    </div>
                 <div class="container">
-      <header>Registration</header>
+      <header>Team Member Register</header>
 
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -33,16 +33,16 @@
  
           <div class="form first">
               <div class="details personal">
-                  <span class="title">Member Details</span>
+                  <!-- <span class="title">Member Details</span> -->
 
 
-      <div class="image-preview-container">
+      <!-- <div class="image-preview-container">
           <div class="preview">
               <img id="preview-selected-image" />
           </div>
           <label for="file-upload">Choose Photo</label>
           <input type="file" id="file-upload" name="image" accept="image/*" onchange="previewImage(event);" />
-      </div>
+      </div> -->
 
                   <div class="fields">
                       <div class="input-field">
@@ -65,10 +65,10 @@
                           {{s_form.staff_full_name}}
                       </div>
 
-                      <div class="input-field">
+                      <!-- <div class="input-field">
                         <label>staff id*</label>
                         {{s_form.staff_id_card}}
-                    </div>
+                    </div> -->
 
                       <div class="input-field">
                           <label>Email*</label>
