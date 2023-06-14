@@ -153,9 +153,25 @@ MESSAGE_TAGS = {
 }
 
 # Email Configuration
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
+
+DEBUG=True
+
+
+# DATABASE CONFIGURATION
+DB_NAME='city_data_db'
+DB_USER='postgres'
+DB_PASSWORD='People@1234'
+DB_HOST='localhost'
+
+
+# EMAIL CONFIGURATION
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='sitanetglobaltech@gmail.com'
+EMAIL_HOST_PASSWORD='fgegffwquvukiprs'
