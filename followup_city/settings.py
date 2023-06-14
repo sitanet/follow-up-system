@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+# from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'followup_city.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
+        'NAME': 'city_data_db',
+        'USER': 'postgres',
+        'PASSWORD': 'People@1234',
+        'HOST': 'localhost',
     }
 }
 
@@ -164,10 +164,10 @@ DEBUG=True
 
 
 # DATABASE CONFIGURATION
-DB_NAME='city_data_db'
-DB_USER='postgres'
-DB_PASSWORD='People@1234'
-DB_HOST='localhost'
+# DB_NAME='city_data_db'
+# DB_USER='postgres'
+# DB_PASSWORD='People@1234'
+# DB_HOST='localhost'
 
 
 # EMAIL CONFIGURATION
