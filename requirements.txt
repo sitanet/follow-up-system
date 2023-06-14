@@ -17,7 +17,7 @@ psycopg2-binary==2.9.6
 psycopg2-pool==1.1
 pypiwin32==223
 python-dateutil==2.8.2
-# python-decouple==3.8
+python-decouple==3.8
 pytz==2023.3
 pywin32==306
 PyYAML==5.4.1
