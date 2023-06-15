@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# from decouple import config
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o2hc%d(uxxqc5r*4t4!!qwp&39(f)^eh5!*uwy&xxirics1xak'
 
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config('DEBUG', cast=bool)
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'followup_city.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'city_data_db',
-        'USER': 'postgres',
-        'PASSWORD': 'People@1234',
-        'HOST': 'localhost',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
     }
 }
 
@@ -153,25 +153,9 @@ MESSAGE_TAGS = {
 }
 
 # Email Configuration
-# EMAIL_HOST = config('EMAIL_HOST')
-# EMAIL_PORT = config('EMAIL_PORT', cast=int)
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
-
-DEBUG=True
-
-
-# DATABASE CONFIGURATION
-# DB_NAME='city_data_db'
-# DB_USER='postgres'
-# DB_PASSWORD='People@1234'
-# DB_HOST='localhost'
-
-
-# EMAIL CONFIGURATION
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT='587'
-EMAIL_HOST_USER='sitanetglobaltech@gmail.com'
-EMAIL_HOST_PASSWORD='fgegffwquvukiprs'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
