@@ -24,7 +24,7 @@ from . import views
 from followup_city import views
 
 urlpatterns = [
-    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    # path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('secure_login/', admin.site.urls),
     path('', views.home, name='home'),
     path('follow_up/', include('follow_up.urls')),

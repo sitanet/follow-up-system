@@ -11,7 +11,6 @@ class Member(models.Model):
     STATE = 2
     FEDERAL = 3
     
-  
     
     GENDER = (
         (MALE, 'Male'),
@@ -31,18 +30,18 @@ class Member(models.Model):
     image = models.ImageField(upload_to='images/')
     first_name = models.CharField(max_length=50, blank=False, null=False , unique=True,)
     middle_name = models.CharField(max_length=20, blank=True, null=True)
-    last_name = models.CharField(max_length=20, blank=True, null=True)
+    last_name = models.CharField(max_length=25, blank=True, null=True)
     date_of_birth = models.DateField(default=date.today, blank=True, null=True)
-    email = models.EmailField(max_length=50, blank=True, null=True)
+    email = models.EmailField(max_length=40, blank=True, null=True)
     phone_no = models.CharField(max_length=15, blank=True, null=True)
-    gender = models.PositiveBigIntegerField(choices=GENDER, blank=True, null=True)
-    marital_status = models.PositiveBigIntegerField(choices=MARITAL, blank=True, null=True)
+    gender = models.PositiveIntegerField(choices=GENDER, blank=True, null=True)
+    marital_status = models.PositiveIntegerField(choices=MARITAL, blank=True, null=True)
     occupation = models.CharField(max_length=20, blank=True,null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     nationality = models.CharField(max_length=20, blank=True, null=True)
     kcc_center = models.CharField(max_length=20, blank=True, null=True)
     
-    wedding_ann = models.CharField(max_length=20, blank=True, null=True)
+    wedding_ann = models.CharField(max_length=30, blank=True, null=True)
     join = models.CharField(max_length=20, blank=True, null=True)
     reg_date = models.CharField(max_length=20, blank=True, null=True)
     about = models.CharField(max_length=20, blank=True, null=True)
@@ -62,10 +61,9 @@ class Member(models.Model):
 
 
 class Comment(models.Model):
-    
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='comments')
-    first_name = models.CharField(max_length=50, blank=False, null=False )
-    last_name = models.CharField(max_length=20, blank=True, null=True)
+    first_name = models.CharField(max_length=40, blank=False, null=False )
+    last_name = models.CharField(max_length=25, blank=True, null=True)
     team_sup = models.CharField(max_length=20, blank=True, null=True)
     date_created = models.DateField(default=date.today, blank=True, null=True)
     comment = models.TextField()

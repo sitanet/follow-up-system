@@ -24,8 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = config('DEBUG', cast=bool)
+
+DEBUG=True
 
 ALLOWED_HOSTS = []
 
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'follow_up',
-    'admin_honeypot',
+    # 'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -80,13 +82,24 @@ WSGI_APPLICATION = 'followup_city.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
+        'NAME': 'tcgcdb',
+        'USER': 'postgres',
+        'PASSWORD': 'People1234',
+        'HOST': 'tcgcdb.cfvbztmv3g3q.us-west-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -119,7 +132,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+
+
 
 USE_I18N = True
 
@@ -153,9 +168,27 @@ MESSAGE_TAGS = {
 }
 
 # Email Configuration
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
+
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='sitanetglobaltech@gmail.com'
+EMAIL_HOST_PASSWORD='fgegffwquvukiprs'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
+
+
+AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOT74BOFBGN '
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'tcgcbucket'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-west-2'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
