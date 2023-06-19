@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-o2hc%d(uxxqc5r*4t4!!qwp&39(f)^eh5!*uwy&xxirics1xak
 
 DEBUG=True
 
-ALLOWED_HOSTS = ['192.168.43.134']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -98,7 +98,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tcgcdb',
-        'USER': 'postgres',
+        'USER': 'tcgc_user',
         'PASSWORD': 'People1234',
         'HOST': 'tcgcdb.cfvbztmv3g3q.us-west-2.rds.amazonaws.com',
         'PORT': '5432',
@@ -185,8 +185,8 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
 
 
-AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOT74BOFBGN '
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOT24PO3YOJ'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'tcgcbucket'
 AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'us-west-2'
