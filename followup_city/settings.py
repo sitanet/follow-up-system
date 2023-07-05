@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 
+import os
+from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,14 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'django-insecure-o2hc%d(uxxqc5r*4t4!!qwp&39(f)^eh5!*uwy&xxirics1xak'
+SECRET_KEY = config('SECRET_KEY')
 
 # # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG', cast=bool)
 
-DEBUG=True
+DEBUG= config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'follow_up',
+    'storages',
     # 'admin_honeypot',
 ]
 
@@ -97,14 +102,13 @@ WSGI_APPLICATION = 'followup_city.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tcgcdb',
-        'USER': 'tcgc_user',
-        'PASSWORD': 'People1234',
-        'HOST': 'tcgcdb.cfvbztmv3g3q.us-west-2.rds.amazonaws.com',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
-
 
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -156,6 +160,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'followup_city/static'
 ]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'followup_city/static'),
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -185,12 +192,20 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
 
 
-AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOT24PO3YOJ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'tcgcbucket'
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = 'us-west-2'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERITY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOTVJWFVY7D'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_SIGNATURE_NAME = config('AWS_S3_SIGNATURE_NAME')
+AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
+AWS_S3_FILE_OVERWRITE = config('AWS_S3_FILE_OVERWRITE')
+AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL')
+AWS_S3_VERITY = config('AWS_S3_VERITY')
+# STATICFILES_STORAGES = 'storages.backends.s3boto3.S3Boto3Storage'
+STORAGES = {"staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"}}
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
