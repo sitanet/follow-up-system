@@ -141,11 +141,9 @@ LANGUAGE_CODE = 'en-us'
 # TIME_ZONE = 'UTC'
 
 
-
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -175,7 +173,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     
 }
-
 # Email Configuration
 # EMAIL_HOST = config('EMAIL_HOST')
 # EMAIL_PORT = config('EMAIL_PORT', cast=int)
@@ -199,6 +196,4 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_LOCATION = 'static'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-
 ADMIN_MEDIA_PREFIX = '/static/admin/'
-
