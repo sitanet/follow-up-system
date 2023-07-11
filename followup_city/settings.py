@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['*']
 
 # CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -176,7 +175,7 @@ MESSAGE_TAGS = {
     
 }
 
-# Email Configuration
+# Email Configuration2
 # EMAIL_HOST = config('EMAIL_HOST')
 # EMAIL_PORT = config('EMAIL_PORT', cast=int)
 # EMAIL_HOST_USER = config('EMAIL_HOST_USER')
