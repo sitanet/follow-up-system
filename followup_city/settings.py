@@ -33,7 +33,7 @@ DEBUG= config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
+# CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
