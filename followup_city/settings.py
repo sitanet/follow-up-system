@@ -32,7 +32,7 @@ DEBUG= config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
+# CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -182,7 +182,7 @@ MESSAGE_TAGS = {
 
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEYs')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_SIGNATURE_NAME = config('AWS_S3_SIGNATURE_NAME')
 AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
