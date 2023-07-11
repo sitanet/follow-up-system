@@ -33,7 +33,8 @@ DEBUG= config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
+CSRF_TRUSTED_ORIGINS = ['Followup-System-dev.us-west-2.elasticbeanstalk.com']
+
 
 # Application definition
 
@@ -175,7 +176,7 @@ MESSAGE_TAGS = {
     
 }
 
-# Email Configuration2
+# Email Configuration
 # EMAIL_HOST = config('EMAIL_HOST')
 # EMAIL_PORT = config('EMAIL_PORT', cast=int)
 # EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -183,16 +184,9 @@ MESSAGE_TAGS = {
 # EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
 
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT='587'
-EMAIL_HOST_USER='sitanetglobaltech@gmail.com'
-EMAIL_HOST_PASSWORD='fgegffwquvukiprs'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'TCGC Followup Team'
 
-
-AWS_ACCESS_KEY_ID = 'AKIAZHHKVQOTVJWFVY7D'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEYs')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_SIGNATURE_NAME = config('AWS_S3_SIGNATURE_NAME')
 AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME')
